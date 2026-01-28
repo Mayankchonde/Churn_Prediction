@@ -24,25 +24,35 @@ st.set_page_config(
 # ============================================================
 # LOAD MODEL AND METADATA
 # ============================================================
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "churn_prediction_model_20260128_140235.pkl")
+METADATA_PATH = os.path.join(BASE_DIR, "churn_prediction_model_20260128_140235_metadata.json")
+
+
 
 @st.cache_resource
+@st.cache_resource
 def load_model():
-    """Load the trained model (cached for speed)"""
-    # Update this path to your saved model
-    model = joblib.load('churn_prediction_model_20260128_140235.pkl')
-    
-    # Load metadata
-    with open('churn_prediction_model_20260128_140235_metadata.json', "r") as f:
-        metadata = json.load(f)
-    
-    return model, metadata
+    """Load the trained model and metadata safely"""
+    try:
+        model = joblib.load(MODEL_PATH)
 
-try:
-    model, metadata = load_model()
-    model_loaded = True
-except:
-    model_loaded = False
-    st.error("⚠️ Could not load model. Please check file path.")
+        with open(METADATA_PATH, "r") as f:
+            metadata = json.load(f)
+
+        return model, metadata
+
+    except Exception as e:
+        st.error(f"❌ Model loading failed: {e}")
+        return None, None
+
+
+model, metadata = load_model()
+model_loaded = model is not None
+
 
 # ============================================================
 # APP TITLE AND DESCRIPTION
@@ -318,6 +328,7 @@ Real business decisions should combine this with human judgment and domain exper
 **Questions?** Contact the Data Science team.
 
 """)
+
 
 
 
