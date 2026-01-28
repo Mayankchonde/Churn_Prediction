@@ -29,10 +29,10 @@ st.set_page_config(
 def load_model():
     """Load the trained model (cached for speed)"""
     # Update this path to your saved model
-    model = joblib.load("churn_prediction_model_20260128_140235.pkl")
+    model = joblib.load('churn_prediction_model_20260128_140235.pkl')
     
     # Load metadata
-    with open("churn_prediction_model_20260128_140235_metadata.json", "r") as f:
+    with open('churn_prediction_model_20260128_140235_metadata.json', "r") as f:
         metadata = json.load(f)
     
     return model, metadata
@@ -318,5 +318,6 @@ Real business decisions should combine this with human judgment and domain exper
 **Questions?** Contact the Data Science team.
 
 """)
+
 
 
