@@ -29,7 +29,7 @@ st.set_page_config(
 def load_model():
     """Load the trained model (cached for speed)"""
     # Update this path to your saved model
-    model = joblib.load("D:\\Quantum\\Data Analyst\\Machine Learning\\saved_models\\churn_prediction_model_20260123_001139.pkl")
+    model = joblib.load("https://github.com/Mayankchonde/Churn_Prediction/blob/main/churn_prediction_model_20260128_140235.pkl")
     
     # Load metadata
     with open("D:\\Quantum\\Data Analyst\\Machine Learning\\saved_models\\churn_prediction_model_20260123_001139_metadata.json", "r") as f:
@@ -316,4 +316,5 @@ st.markdown("""
 Real business decisions should combine this with human judgment and domain expertise.
 
 **Questions?** Contact the Data Science team.
+
 """)
