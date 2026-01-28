@@ -32,7 +32,7 @@ def load_model():
     model = joblib.load("https://github.com/Mayankchonde/Churn_Prediction/blob/main/churn_prediction_model_20260128_140235.pkl")
     
     # Load metadata
-    with open("D:\\Quantum\\Data Analyst\\Machine Learning\\saved_models\\churn_prediction_model_20260123_001139_metadata.json", "r") as f:
+    with open("https://github.com/Mayankchonde/Churn_Prediction/blob/main/churn_prediction_model_20260128_140235_metadata.json", "r") as f:
         metadata = json.load(f)
     
     return model, metadata
@@ -318,3 +318,4 @@ Real business decisions should combine this with human judgment and domain exper
 **Questions?** Contact the Data Science team.
 
 """)
+
