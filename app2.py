@@ -192,4 +192,5 @@ if st.sidebar.button("🔮 Predict Churn", type="primary"):
 # ============================================================
 
 st.divider()
-st.caption("⚠️ Predictions are probabilistic. Use business judgment before
+st.caption("⚠️ Predictions are probabilistic. Use business judgment before action.")
+
